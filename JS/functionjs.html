@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function in JS</title>
+</head>
+<body>
+    <script>
+        //function:block of code,used or defined to perform specific task
+        //Types of Function
+        //normal function: -with para,without para and with default
+
+        function demo(){
+            console.log("Hello JS");
+        }
+        demo();//function calling
+        //with parameters
+        function demo1(text){
+            console.log("Hello "+ text);
+        }
+        demo1();
+        //default PARAMETER
+        function add(a,b){
+            console.log("Add "+ (a+b));
+        }
+        add(123);
+        //synchronous function
+        function cal(){
+            function add(a,b){
+                console.log("Add "+ (a+b));
+            }
+        function sub(a,b){
+            console.log("Sub "+ (a-b));
+        }
+        function mul(a,b){
+            console.log("Mul "+ (a*b));
+        }
+        add(10,20);
+        sub(15,6);
+        mul(10,20);
+    }
+    cal();
+    // annonymous function: -function without name
+    let msg=function(){
+        console.log("Hello ABES");
+        console.log(typeof(msg));
+    }
+    msg();
+    let msg1=function(){
+           console.log("Hello Abes EC");
+    };
+    msg1();
+    //arrow function using multiple parameters
+    let msg2=(a,b)=>{
+        var num1=a;
+        var num2=b;
+        var res=num1/num2;
+        console.log("Div "+ res);
+    }
+    msg2(10,20);
+    // IIFE:- 
+    (function(){
+        console.log("Hello World");
+    })();
+    //Promise:-used to handle asynchronous operations
+    let myPromise=new Promise(function(resolve,reject){
+        let a=10;
+        let b=20;
+        if(a+b==30){
+            resolve("Success");
+        }
+        else{
+            reject("Failed");
+        }
+    });
+    myPromise
+        .then(msg=>console.log(msg))
+        .catch(err=>console.log(err));
+        console.log(myPromise);
+
+        // In JavaScript, async and await are used to handle asynchronous operations in a more readable and structured way. 
+        // They are built on top of Promises and provide a cleaner syntax for working with asynchronous code.
+
+
+        // What is Synchronous and Asynchronous in JavaScript?
+        // Synchronous: In synchronous programming, tasks are executed one after another, and each task
+        // must complete before the next one starts. This can lead to blocking behavior, where the program waits for a task to finish before 
+        // moving on to the next one.
+        // Asynchronous: In asynchronous programming, tasks can be initiated and then continue to run in
+        // the background while the program continues to execute other tasks. This allows for non-blocking behavior, 
+        // where the program can handle multiple tasks concurrently without waiting for each one to finish before starting the next.
+        
+
+        // What are objects in JavaScript?
+        // Objects in JavaScript are a fundamental data type that allows you to store collections of key-value pairs. 
+        // Objects can represent real-world entities, such as a person, a car, or a book, and they can also be used to organize and structure data in your programs.
+        // Objects can contain properties (key-value pairs) and methods (functions that operate on the
+        // properties of the object). They are mutable, meaning you can change their properties and methods after they have been created.
+
+
+        let userData=fetch('https://jsonplaceholder.typicode.com/users')
+        .then(response=>response.json())
+        .then(data=>console.log(data))
+        .then(()=>userinfo());
+
+        async function userInfo(){
+            try{
+                let response=await fetch('https://jsonplaceholder.typicode.com/users');
+                let data=await response.json();
+                console.log(response);
+            }
+            catch(error){
+                console.log(error);
+            }
+        }
+
+        let myInfo={
+            name:"Piyush",
+            age:18,
+            isMarried:false,
+            address:{
+                area:"Indirapuram",
+                pincode:201014,
+                city:"GZB"
+
+            },
+            education:["10th" , "12th", "Btech"],
+            degree:"B Tech",
+            branch:"CSE",
+            year:2025,getInfo:function() {
+                return "My Current Address Is " + myInfo.degree;
+            }
+        }
+
+    </script>
+</body>
+</html>
